@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* IDE Dark Theme */
+    --background: 220 15% 8%;
+    --foreground: 210 20% 90%;
+
+    --card: 220 15% 10%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 220 15% 12%;
+    --popover-foreground: 210 20% 90%;
+
+    --primary: 190 95% 50%;
+    --primary-foreground: 220 15% 8%;
+
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 210 15% 55%;
+
+    --accent: 190 80% 45%;
+    --accent-foreground: 220 15% 8%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 15%;
+    --ring: 190 95% 50%;
+
+    --radius: 0.375rem;
+
+    /* IDE Specific */
+    --sidebar-bg: 220 15% 10%;
+    --sidebar-hover: 220 15% 14%;
+    --sidebar-active: 190 95% 50%;
+    --tab-bg: 220 15% 12%;
+    --tab-active: 220 15% 8%;
+    --tab-border: 190 95% 50%;
+    --editor-bg: 220 15% 8%;
+    --editor-gutter: 220 15% 12%;
+    --editor-line-highlight: 220 15% 12%;
+    --status-bar: 220 15% 6%;
+    --ai-accent: 280 80% 60%;
+    --success: 145 70% 45%;
+    --warning: 40 95% 55%;
+
+    --sidebar-background: 220 15% 10%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 190 95% 50%;
+    --sidebar-primary-foreground: 220 15% 8%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 190 95% 50%;
+  }
+
+  .dark {
+    --background: 220 15% 8%;
+    --foreground: 210 20% 90%;
+
+    --card: 220 15% 10%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 220 15% 12%;
+    --popover-foreground: 210 20% 90%;
+
+    --primary: 190 95% 50%;
+    --primary-foreground: 220 15% 8%;
+
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 210 15% 55%;
+
+    --accent: 190 80% 45%;
+    --accent-foreground: 220 15% 8%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 15%;
+    --ring: 190 95% 50%;
+
+    --sidebar-background: 220 15% 10%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 190 95% 50%;
+    --sidebar-primary-foreground: 220 15% 8%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 190 95% 50%;
+  }
+
+  /* Light Theme */
+  .light-theme {
+    --background: 0 0% 98%;
+    --foreground: 220 15% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 10%;
+
+    --primary: 190 95% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 15% 20%;
+
+    --muted: 220 15% 88%;
+    --muted-foreground: 220 15% 40%;
+
+    --accent: 190 80% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 92%;
+    --input: 220 15% 95%;
+    --ring: 190 95% 40%;
+
+    /* IDE Specific Light Theme */
+    --sidebar-bg: 220 15% 96%;
+    --sidebar-hover: 220 15% 90%;
+    --sidebar-active: 190 95% 40%;
+    --tab-bg: 220 15% 94%;
+    --tab-active: 0 0% 100%;
+    --tab-border: 190 95% 40%;
+    --editor-bg: 0 0% 100%;
+    --editor-gutter: 220 15% 94%;
+    --editor-line-highlight: 220 15% 96%;
+    --status-bar: 220 15% 98%;
+    --ai-accent: 280 80% 50%;
+    --success: 145 70% 45%;
+    --warning: 40 95% 55%;
+
+    --sidebar-background: 220 15% 96%;
+    --sidebar-foreground: 220 15% 20%;
+    --sidebar-primary: 190 95% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 90%;
+    --sidebar-accent-foreground: 220 15% 20%;
+    --sidebar-border: 220 15% 92%;
+    --sidebar-ring: 190 95% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+@layer components {
+  .ide-panel {
+    @apply bg-card border border-border;
+  }
+
+  .ide-button {
+    @apply px-3 py-1.5 rounded text-sm font-medium transition-all duration-150;
+    @apply bg-secondary text-secondary-foreground;
+    @apply hover:bg-muted;
+  }
+
+  .ide-button-primary {
+    @apply px-3 py-1.5 rounded text-sm font-medium transition-all duration-150;
+    @apply bg-primary text-primary-foreground;
+    @apply hover:opacity-90;
+  }
+
+  .ide-button-primary:disabled {
+    @apply opacity-50 cursor-not-allowed hover:opacity-50;
+  }
+
+  .ide-button-ai {
+    @apply px-3 py-1.5 rounded text-sm font-medium transition-all duration-150;
+    background: linear-gradient(135deg, hsl(var(--ai-accent)), hsl(var(--primary)));
+    @apply text-primary-foreground;
+    @apply hover:opacity-90;
+  }
+
+  .file-item {
+    @apply px-2 py-1 rounded text-sm cursor-pointer transition-colors duration-150;
+    @apply hover:bg-sidebar-accent text-sidebar-foreground;
+  }
+
+  .file-item.active {
+    @apply bg-sidebar-accent text-primary;
+  }
+
+  .tab-item {
+    @apply px-3 py-2 text-sm flex items-center gap-2 cursor-pointer transition-colors duration-150;
+    @apply bg-tab border-b-2 border-transparent;
+    background: hsl(var(--tab-bg));
+  }
+
+  .tab-item.active {
+    background: hsl(var(--tab-active));
+    border-bottom-color: hsl(var(--tab-border));
+  }
+
+  .tab-item:hover:not(.active) {
+    @apply bg-muted;
+  }
+
+  .code-font {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  .ai-glow {
+    box-shadow: 0 0 20px hsl(var(--ai-accent) / 0.3);
+  }
+
+  .status-indicator {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-indicator.success {
+    background: hsl(var(--success));
+  }
+
+  .status-indicator.warning {
+    background: hsl(var(--warning));
+  }
+
+  .status-indicator.error {
+    background: hsl(var(--destructive));
+  }
+}
+
+/* Cloudscape overrides for dark theme */
+.awsui-dark-mode {
+  --color-background-container-content: hsl(220, 15%, 8%) !important;
+}
+
+/* Ace Editor Dark Theme Overrides */
+.ace_editor {
+  font-family: 'JetBrains Mono', monospace !important;
+  background: hsl(220, 15%, 8%) !important;
+}
+
+.ace_gutter {
+  background: hsl(220, 15%, 10%) !important;
+  color: hsl(210, 15%, 45%) !important;
+}
+
+.ace_content {
+  background: hsl(220, 15%, 8%) !important;
+}
+
+.ace_active-line {
+  background: hsl(220, 15%, 12%) !important;
+}
+
+.ace_cursor {
+  color: hsl(190, 95%, 50%) !important;
+}
+
+.ace_selection {
+  background: hsl(190, 95%, 50%, 0.2) !important;
+}
+
+/* Syntax Highlighting Colors */
+.text-keyword {
+  @apply text-pink-400;
+}
+
+.text-type-keyword {
+  @apply text-cyan-400;
+}
+
+.text-function {
+  @apply text-yellow-400;
+}
+
+.text-string {
+  @apply text-green-400;
+}
+
+.text-comment {
+  @apply text-gray-500;
+}
+
+.text-number {
+  @apply text-orange-400;
+}
+
+.text-operator {
+  @apply text-gray-400;
+}
+
+/* Light theme syntax highlighting */
+.light-theme .text-keyword {
+  @apply text-pink-600;
+}
+
+.light-theme .text-type-keyword {
+  @apply text-cyan-600;
+}
+
+.light-theme .text-function {
+  @apply text-yellow-600;
+}
+
+.light-theme .text-string {
+  @apply text-green-600;
+}
+
+.light-theme .text-comment {
+  @apply text-gray-400;
+}
+
+.light-theme .text-number {
+  @apply text-orange-600;
+}
+
+.light-theme .text-operator {
+  @apply text-gray-600;
+}
+
